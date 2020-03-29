@@ -1,0 +1,48 @@
+{
+    "managers": [
+        {
+            "id": 0,
+            "name": "KanBan Please!"
+        }
+    ],
+    "boards" : [
+        {
+            "id": 0,
+            "name": "Test Board 1",
+            "created":"2020-03-28 18:57:56",
+            "modified":"2020-03-28 18:57:56",
+            "deleted": false,
+            "managerId": 0
+        }
+    ],
+    "columns": [
+        {
+            "id": 0,
+            "name": "Test Column 1",
+            "boardId" : 0,
+            "deleted": false,
+            "created" : "2020-03-28 18:57:56",
+            "modified" : "2020-03-28 18:57:56"
+        }
+    ],
+    "cards" : [
+        {
+            "id": 0,
+            "name": "Test Card 1",
+            "content" : "Cupidatat ullamco magna quis labore elit eu minim nostrud mollit cupidatat.",
+            "created" :"2020-03-28 18:57:56",
+            "modified" :"2020-03-28 18:57:56",
+            "columnId": 0,
+            "deleted": false
+        },
+        {
+            "id": 1,
+            "name": "Test Card 2",
+            "content" : "Reprehenderit et voluptate eiusmod proident consequat Lorem fugiat elit incididunt excepteur occaecat incididunt.",
+            "created" :"2020-03-28 18:57:56",
+            "modified" :"2020-03-28 18:57:56",
+            "columnId": 0,
+            "deleted": false
+        }
+    ]
+}
