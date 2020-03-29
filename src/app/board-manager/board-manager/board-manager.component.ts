@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BoardManagerService } from '../board-manager.service';
+import { Column } from '../models/models';
 
 @Component({
   selector: 'app-board-manager',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BoardManagerComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _bms: BoardManagerService) { }
 
   ngOnInit(): void {
+    this._bms.getBoards().subscribe();
+    this._bms.getColumns().subscribe();
+    this._bms.getCards().subscribe();
+    console.log( 'init' );
   }
 
 }

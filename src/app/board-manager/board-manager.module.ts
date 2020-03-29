@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { BoardManagerRoutingModule } from './board-manager-routing.module';
 import { BoardManagerComponent } from './board-manager/board-manager.component';
+import { BoardManagerService } from './board-manager.service';
 
 
 @NgModule({
@@ -10,6 +11,7 @@ import { BoardManagerComponent } from './board-manager/board-manager.component';
   imports: [
     CommonModule,
     BoardManagerRoutingModule
-  ]
+  ],
+  providers: [BoardManagerService]
 })
 export class BoardManagerModule { }
