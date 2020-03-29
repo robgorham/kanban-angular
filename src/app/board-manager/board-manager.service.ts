@@ -12,10 +12,18 @@ export class BoardManagerService {
 
   private _manager: BehaviorSubject<BoardManager>;
 
-  getBoards(): Observable<Board> {
-    return this._http.get<Board>('http://localhost:3000/managers').pipe(
+  getManagers(): Observable<BoardManager[]> {
+    return this._http.get<BoardManager[]>('http://localhost:3000/managers').pipe(
       tap( data => {
         console.log (data);
+      })
+    )
+  }
+
+  getBoards(): Observable<Board[]> {
+    return this._http.get<Board[]>('http://localhost:3000/boards').pipe(
+      tap(data => {
+        console.log( data);
       })
     )
   }

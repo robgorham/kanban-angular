@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BoardManagerService } from '../board-manager.service';
 import { Column } from '../models/models';
+import { BoardManagerDataService } from '../board-manager-data.service';
 
 @Component({
   selector: 'app-board-manager',
@@ -9,13 +10,11 @@ import { Column } from '../models/models';
 })
 export class BoardManagerComponent implements OnInit {
 
-  constructor(private _bms: BoardManagerService) { }
+  constructor(private _bms: BoardManagerService,
+    private _bmd: BoardManagerDataService) { }
 
   ngOnInit(): void {
-    this._bms.getBoards().subscribe();
-    this._bms.getColumns().subscribe();
-    this._bms.getCards().subscribe();
-    console.log( 'init' );
+    this._bmd.getAll().subscribe();
   }
 
 }
