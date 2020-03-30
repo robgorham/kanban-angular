@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { tap, take } from 'rxjs/operators';
 import { BoardManager, Column, Card, Board } from './models/models';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -12,12 +13,17 @@ export class BoardManagerService {
 
   private _manager: BehaviorSubject<BoardManager>;
 
-  getManagers(): Observable<BoardManager[]> {
-    return this._http.get<BoardManager[]>('http://localhost:3000/managers').pipe(
+  getObjects<T>(endpoint: string): Observable<T[]> {
+    return this._http.get<T[]>(environment.api + `/${endpoint}`).pipe(
       tap( data => {
-        console.log (data);
+        console.log( data );
       })
-    )
+    );
+  }
+
+
+  getManagers(): Observable<BoardManager[]> {
+    return this.getObjects<BoardManager>('managers');
   }
 
   getBoards(): Observable<Board[]> {

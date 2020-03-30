@@ -12,10 +12,7 @@ import { DefaultDataServiceConfig, EntityDataService } from '@ngrx/data';
 import { BoardManagerDataService } from './board-manager/board-manager-data.service';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-const defaultDataServiceConfig: DefaultDataServiceConfig = {
-  root: 'http://localhost:3000/managers',
-  timeout: 3000, // request timeout
-}
+
 @NgModule({
   declarations: [
     AppComponent
@@ -30,14 +27,7 @@ const defaultDataServiceConfig: DefaultDataServiceConfig = {
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
-  providers: [ {
-    provide: DefaultDataServiceConfig, useValue: defaultDataServiceConfig
-  }],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
-export class AppModule { constructor(
-  entityDataService: EntityDataService,
-  boardManagerDataService: BoardManagerDataService,
-) {
-  entityDataService.registerService('Manager', boardManagerDataService); // <-- register it
-}}
+export class AppModule { }

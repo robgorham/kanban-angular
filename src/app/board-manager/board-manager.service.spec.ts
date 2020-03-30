@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { BoardManagerService } from './board-manager.service';
+import { BoardManagerService } from './api.object.service';
 
 describe('BoardManagerService', () => {
   let service: BoardManagerService;
