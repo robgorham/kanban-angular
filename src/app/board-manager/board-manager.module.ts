@@ -23,7 +23,10 @@ const defaultDataServiceConfig: DefaultDataServiceConfig = {
     StoreModule.forRoot({}),
     EffectsModule.forFeature([]),
     EntityDataModule.forRoot({
-      entityMetadata: boardManagerMetaData
+      entityMetadata: boardManagerMetaData,
+      pluralNames: {
+        Managers: 'Managers'
+      }
     }),
     environment.production ? [] : StoreDevtoolsModule.instrument()
   ],

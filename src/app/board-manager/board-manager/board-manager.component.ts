@@ -13,7 +13,7 @@ export class BoardManagerComponent implements OnInit {
   _bms: EntityCollectionService<BoardManager>;
   constructor( EntityCollectionServiceFactory: EntityCollectionServiceFactory,
 
-    ) { this._bms = EntityCollectionServiceFactory.create<BoardManager>('Manager');
+    ) { this._bms = EntityCollectionServiceFactory.create<BoardManager>('Managers');
     }
 
   ngOnInit(): void {
@@ -23,6 +23,9 @@ export class BoardManagerComponent implements OnInit {
         console.log("my boards", data)
       })
     ).subscribe();
+    this._bms.update({id: 0, name: 'Rob is Awesome!'}).subscribe(
+      data=> console.log(data)
+    );
   }
 
 }

@@ -1,9 +1,10 @@
 import { EntityMetadataMap } from '@ngrx/data';
 export const boardManagerMetaData: EntityMetadataMap = {
-  Manager: {
+  Managers: {
     additionalCollectionState: {
       name: 'Test Board'
-    }
+    },
+
   },
   Board: {
   },

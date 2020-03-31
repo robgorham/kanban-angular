@@ -17,6 +17,6 @@ export class BoardManagerDataService extends DefaultDataService<BoardManager> {
     httpUrlGenerator: HttpUrlGenerator,
     config: DefaultDataServiceConfig,
     private bm: BoardManagerService) {
-      super( 'Manager', http, httpUrlGenerator, config);
+      super( 'Managers', http, httpUrlGenerator, config);
      }
 }

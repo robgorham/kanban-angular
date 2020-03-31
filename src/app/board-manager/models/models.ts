@@ -1,10 +1,10 @@
 export interface BoardManager {
-  id: string;
+  id: number;
   name: string | null;
   boards: Board[] | null;
 };
 export interface Board {
-  id: string;
+  id: number;
   name: string;
   columns: Column[] | null;
   deleted: boolean;
@@ -13,7 +13,7 @@ export interface Board {
 };
 
 export interface Column {
-  id: string;
+  id: number;
     name: string | null;
     cards: Card[] | null;
     deleted: boolean;
