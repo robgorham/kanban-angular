@@ -1,12 +1,16 @@
 import { TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { BoardManagerDataService } from './board-manager-data.service';
 
 describe('BoardManagerDataService', () => {
   let service: BoardManagerDataService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers:[
+        HttpClientTestingModule
+      ]
+    });
     service = TestBed.inject(BoardManagerDataService);
   });
 

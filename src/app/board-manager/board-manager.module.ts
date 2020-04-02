@@ -3,20 +3,23 @@ import { CommonModule } from '@angular/common';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { BoardManagerRoutingModule } from './board-manager-routing.module';
 import { BoardManagerComponent } from './board-manager/board-manager.component';
-import { BoardManagerService } from './api.object.service';
 import { EntityDataModule, DefaultDataServiceConfig, DefaultDataService, EntityDataService } from '@ngrx/data';
 import { boardManagerMetaData } from './BoardManagerMetaData';
 import { BoardManagerDataService } from './board-manager-data.service';
 import { environment } from 'src/environments/environment';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
+import { BoardManagerFacade } from './board-manager-facade';
+import { BoardComponent } from './board-manager/board/board.component';
+import { MaterialModule } from '../material/material.module';
+import { BoardDataService } from './board-data.service';
 
 const defaultDataServiceConfig: DefaultDataServiceConfig = {
   root: environment.api,
   timeout: 3000, // request timeout
 }
 @NgModule({
-  declarations: [BoardManagerComponent],
+  declarations: [BoardManagerComponent, BoardComponent],
   imports: [
     CommonModule,
     BoardManagerRoutingModule,
@@ -25,18 +28,23 @@ const defaultDataServiceConfig: DefaultDataServiceConfig = {
     EntityDataModule.forRoot({
       entityMetadata: boardManagerMetaData,
       pluralNames: {
-        Managers: 'Managers'
+        Managers: 'Managers',
+        Cards: 'Cards',
+        Boards: 'Boards'
       }
     }),
-    environment.production ? [] : StoreDevtoolsModule.instrument()
+    environment.production ? [] : StoreDevtoolsModule.instrument(),
+    MaterialModule
   ],
-  providers: [BoardManagerService, {
+  providers: [ {
     provide: DefaultDataServiceConfig, useValue: defaultDataServiceConfig
-  },BoardManagerDataService, ]
+  },BoardManagerDataService,BoardDataService,
+  BoardManagerFacade]
 })
 export class BoardManagerModule {constructor(
   entityDataService: EntityDataService,
   boardManagerDataService: BoardManagerDataService,
+  boardDataService: BoardDataService
 ) {
-  entityDataService.registerService('Manager', boardManagerDataService); // <-- register it
+  entityDataService.registerServices({'Manager': boardManagerDataService, 'Board': boardDataService }); // <-- register it
 } }

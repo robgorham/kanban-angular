@@ -8,8 +8,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { BoardManagerModule } from './board-manager/board-manager.module';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
-import { DefaultDataServiceConfig, EntityDataService } from '@ngrx/data';
-import { BoardManagerDataService } from './board-manager/board-manager-data.service';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 
@@ -25,7 +23,7 @@ import { environment } from '../environments/environment';
     BoardManagerModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   ],
   providers: [ ],
   bootstrap: [AppComponent]

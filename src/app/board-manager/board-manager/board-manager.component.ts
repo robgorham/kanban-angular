@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { BoardManagerService } from '../api.object.service';
-import { Column, BoardManager } from '../models/models';
-import { EntityCollectionServiceFactory, EntityCollectionService } from '@ngrx/data';
+import { Column, BoardManager, Board } from '../models/models';
 import { tap } from 'rxjs/operators';
+import { BoardManagerFacade } from '../board-manager-facade';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-board-manager',
@@ -10,22 +10,17 @@ import { tap } from 'rxjs/operators';
   styleUrls: ['./board-manager.component.scss']
 })
 export class BoardManagerComponent implements OnInit {
-  _bms: EntityCollectionService<BoardManager>;
-  constructor( EntityCollectionServiceFactory: EntityCollectionServiceFactory,
 
-    ) { this._bms = EntityCollectionServiceFactory.create<BoardManager>('Managers');
-    }
+  boardManager$: Observable<BoardManager>;
+  boards$: Observable<Board[]>;
+  constructor(private _bmf: BoardManagerFacade) {}
 
   ngOnInit(): void {
     // Testing whether the getAll actually works with the minimum work
-    this._bms.getAll().pipe(
-      tap( data => {
-        console.log("my boards", data)
-      })
-    ).subscribe();
-    this._bms.update({id: 0, name: 'Rob is Awesome!'}).subscribe(
-      data=> console.log(data)
-    );
+    this.boardManager$ = this._bmf.getBoardManagerByID(0);
+    this.boards$ = this._bmf.getBoardsByManagerID(0)
+    .pipe(
+      tap( data => console.log('managerId:0', data ))
+      )
   }
-
 }

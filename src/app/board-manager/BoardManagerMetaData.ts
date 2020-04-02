@@ -6,8 +6,8 @@ export const boardManagerMetaData: EntityMetadataMap = {
     },
 
   },
-  Board: {
+  Boards: {
   },
-  Column: {},
-  Card: {}
+  Columns: {},
+  Cards: {}
 }

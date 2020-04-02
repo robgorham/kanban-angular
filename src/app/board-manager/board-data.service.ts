@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class BoardManagerDataService extends DefaultDataService<BoardManager> {
+export class BoardDataService extends DefaultDataService<BoardManager> {
 
   // Need this in order to inject the config
   constructor(
@@ -14,6 +14,6 @@ export class BoardManagerDataService extends DefaultDataService<BoardManager> {
     httpUrlGenerator: HttpUrlGenerator,
     config: DefaultDataServiceConfig,
     ) {
-      super( 'Managers', http, httpUrlGenerator, config);
+      super( 'Boards', http, httpUrlGenerator, config);
      }
 }
