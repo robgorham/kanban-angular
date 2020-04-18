@@ -1,32 +1,31 @@
-export interface BoardManager {
+export interface IBoardManager {
   id: number;
   name: string | null;
-  boards: Board[] | null;
-};
-export interface Board {
+  boards: IBoard[] | null;
+}
+export interface IBoard {
   id: number;
   name: string;
-  columns: Column[] | null;
+  columns: IColumn[] | null;
   deleted: boolean;
   created: Date;
   modified: Date;
-};
-
-export interface Column {
-  id: number;
-    name: string | null;
-    cards: Card[] | null;
-    deleted: boolean;
-    created: Date;
-    modified: Date;
-};
-
-export interface Card {
-  id: string;
-    name: string | null;
-    content: string | null;
-    created: Date;
-    modified: Date;
-    deleted: boolean;
 }
 
+export interface IColumn {
+  id: number;
+  name: string | null;
+  cards: ICard[] | null;
+  deleted: boolean;
+  created: Date;
+  modified: Date;
+}
+
+export interface ICard {
+  id: string;
+  name: string | null;
+  content: string | null;
+  created: Date;
+  modified: Date;
+  deleted: boolean;
+}

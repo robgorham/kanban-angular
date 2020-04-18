@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Column, BoardManager, Board } from '../models/models';
+import { IColumn, IBoardManager, IBoard } from '../models/models';
 import { tap } from 'rxjs/operators';
 import { BoardManagerFacade } from '../board-manager-facade';
 import { Observable } from 'rxjs';
@@ -11,8 +11,8 @@ import { Observable } from 'rxjs';
 })
 export class BoardManagerComponent implements OnInit {
 
-  boardManager$: Observable<BoardManager>;
-  boards$: Observable<Board[]>;
+  boardManager$: Observable<IBoardManager>;
+  boards$: Observable<IBoard[]>;
   constructor(private _bmf: BoardManagerFacade) {}
 
   ngOnInit(): void {
