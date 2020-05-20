@@ -30,7 +30,8 @@ const defaultDataServiceConfig: DefaultDataServiceConfig = {
       pluralNames: {
         Managers: 'Managers',
         Cards: 'Cards',
-        Boards: 'Boards'
+        Boards: 'Boards',
+        Columns: 'Columns'
       }
     }),
     environment.production ? [] : StoreDevtoolsModule.instrument(),

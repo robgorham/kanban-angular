@@ -1,5 +1,6 @@
-<mat-card *ngIf="boardManager$">
-id:{{(boardManager$ | async).id}}
-{{(boardManager$ | async).name}}
-
+<mat-card *ngIf="(boardManager$ | async) as boardmanager ">
+  {{boardmanager.id}}
+  {{boardmanager.name}}
+  <app-board *ngFor="let board of boardmanager.boards as boardList" [board]="board">
+  </app-board>
 </mat-card>

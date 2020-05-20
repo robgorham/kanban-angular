@@ -1,1 +1,10 @@
-<p>board works!</p>
+<mat-card>
+  <mat-card-header>{{board.name}}</mat-card-header>
+  <mat-card-content>
+    <br />
+    created: {{board.created}}
+    <div *ngFor="let column of board.columns as columnList">
+      {{column.name}}
+    </div>
+  </mat-card-content>
+</mat-card>

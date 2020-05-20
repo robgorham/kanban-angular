@@ -10,6 +10,7 @@ export interface IBoard {
   deleted: boolean;
   created: Date;
   modified: Date;
+  managerId: number;
 }
 
 export interface IColumn {
@@ -19,6 +20,8 @@ export interface IColumn {
   deleted: boolean;
   created: Date;
   modified: Date;
+  boardId: number;
+
 }
 
 export interface ICard {
@@ -28,4 +31,5 @@ export interface ICard {
   created: Date;
   modified: Date;
   deleted: boolean;
+  columnId: number;
 }

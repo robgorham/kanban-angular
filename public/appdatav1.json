@@ -13,6 +13,14 @@
       "modified": "2020-03-28 18:57:56",
       "deleted": false,
       "managerId": 0
+    },
+    {
+      "id": 1,
+      "name": "Test Board 2",
+      "created": "2020-03-28 18:57:56",
+      "modified": "2020-03-28 18:57:56",
+      "deleted": false,
+      "managerId": 0
     }
   ],
   "columns": [
@@ -23,7 +31,16 @@
       "deleted": false,
       "created": "2020-03-28 18:57:56",
       "modified": "2020-03-28 18:57:56"
+    },
+    {
+      "id": 1,
+      "name": "TestColumn 2",
+      "boardId": 0,
+      "deleted": false,
+      "created": "2020-03-28 18:57:56",
+      "modified": "2020-03-28 18:57:56"
     }
+
   ],
   "cards": [
     {
