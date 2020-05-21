@@ -78,7 +78,7 @@ The seed data will live next to the interfaces.
 
 ## Development server
 
-Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files besides seed data. 
 
 ## Code scaffolding
 
