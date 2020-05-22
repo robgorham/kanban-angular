@@ -17,13 +17,13 @@ export const boardManagerMetaData: EntityMetadataMap = {
   Cards: {
     filterFn: filterCards
   }
-}
+};
 
 export function filterColumns(entities: IColumn[], search: number) {
   return entities.filter(e => e.boardId === search);
 }
 export function filterBoards(entities: IBoard[], search: number) {
-  return entities.filter(e => e.managerId === search)
+  return entities.filter(e => e.managerId === search);
 }
 
 export function filterCards( entities: ICard[], search: number) {

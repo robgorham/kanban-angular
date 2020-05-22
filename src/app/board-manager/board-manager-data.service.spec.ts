@@ -7,7 +7,7 @@ describe('BoardManagerDataService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers:[
+      providers: [
         HttpClientTestingModule
       ]
     });
