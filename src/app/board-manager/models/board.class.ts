@@ -5,6 +5,7 @@ export class Board implements IBoard {
   name: string;
   columns: IColumn[];
   deleted: boolean;
+  managerId: number;
   created: Date;
   modified: Date;
   constructor(name: string = null){
