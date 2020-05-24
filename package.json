@@ -4,7 +4,11 @@
   "scripts": {
     "ng": "ng",
     "prestart": "cd ./public && json-server appdatav1.json &",
+    "prelan0": "cd ./public && json-server --host 192.168.1.209 appdatav1.json &",
+    "prelan": "cd ./public && json-server appdatav1.json &",
     "start": "ng serve",
+    "lan": "ng serve --host 192.168.1.209",
+    "lan0": "ng serve -c=lan0 --host 192.168.1.209 --port 9090",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

@@ -34,6 +34,14 @@
             "scripts": []
           },
           "configurations": {
+            "lan0": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.lan0.ts"
+                }
+              ]
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -70,6 +78,9 @@
             "browserTarget": "KanBan:build"
           },
           "configurations": {
+            "lan0": {
+              "browserTarget": "KanBan:build:lan0"
+            },
             "production": {
               "browserTarget": "KanBan:build:production"
             }
