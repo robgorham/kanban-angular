@@ -1,0 +1,12 @@
+<mat-card>
+    <mat-card-header>
+        {{column.name}}
+    </mat-card-header>
+    <mat-card-content>
+        <br />
+        created: {{ column.created}}
+        <div *ngFor="let  card of column.cards as cardList">
+            Card: {{card.name}}
+        </div>
+    </mat-card-content>
+</mat-card>
