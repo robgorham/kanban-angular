@@ -13,13 +13,14 @@ import { BoardManagerFacade } from './board-manager-facade';
 import { BoardComponent } from './board-manager/board/board.component';
 import { MaterialModule } from '../material/material.module';
 import { BoardDataService } from './board-data.service';
+import { ColumnComponent } from '../column/column.component';
 
 const defaultDataServiceConfig: DefaultDataServiceConfig = {
   root: environment.api,
   timeout: 3000, // request timeout
-}
+};
 @NgModule({
-  declarations: [BoardManagerComponent, BoardComponent],
+  declarations: [BoardManagerComponent, BoardComponent, ColumnComponent],
   imports: [
     CommonModule,
     BoardManagerRoutingModule,
@@ -39,7 +40,7 @@ const defaultDataServiceConfig: DefaultDataServiceConfig = {
   ],
   providers: [ {
     provide: DefaultDataServiceConfig, useValue: defaultDataServiceConfig
-  },BoardManagerDataService,BoardDataService,
+  }, BoardManagerDataService, BoardDataService,
   BoardManagerFacade]
 })
 export class BoardManagerModule {constructor(
@@ -47,5 +48,5 @@ export class BoardManagerModule {constructor(
   boardManagerDataService: BoardManagerDataService,
   boardDataService: BoardDataService
 ) {
-  entityDataService.registerServices({'Manager': boardManagerDataService, 'Board': boardDataService }); // <-- register it
+  entityDataService.registerServices({Manager: boardManagerDataService, Board: boardDataService }); // <-- register it
 } }

@@ -4,7 +4,9 @@
     <br />
     created: {{board.created}}
     <div *ngFor="let column of board.columns as columnList">
-      {{column.name}}
+      <app-column [column]="column">
+
+      </app-column>
     </div>
   </mat-card-content>
 </mat-card>

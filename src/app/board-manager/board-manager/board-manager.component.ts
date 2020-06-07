@@ -12,7 +12,9 @@ import { Observable } from 'rxjs';
 export class BoardManagerComponent implements OnInit {
   boardManager$: Observable<IBoardManager>;
   boards$: Observable<IBoard[]>;
+  selectedBoardManager$: Observable<IBoardManager>;
   // columns$: Observable<IColumn[]>;
+  // tslint:disable-next-line: variable-name
   constructor(private _bmf: BoardManagerFacade) {}
 
   ngOnInit(): void {
@@ -21,8 +23,11 @@ export class BoardManagerComponent implements OnInit {
       .getBoardManagerByID(0)
       .pipe(
         concatMap((val) =>
-          this._bmf.boards$.pipe(map((boards) => ({ ...val, boards })))
+          this._bmf.boards$.pipe(
+            map((boards) => ({ ...val, boards }))
+          )
         )
       );
+    this.selectedBoardManager$ = this._bmf.getBoardManagerByID(0);
   }
 }
