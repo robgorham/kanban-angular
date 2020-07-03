@@ -17,7 +17,7 @@ import { BoardDataService } from './board-data.service';
 const defaultDataServiceConfig: DefaultDataServiceConfig = {
   root: environment.api,
   timeout: 3000, // request timeout
-}
+};
 @NgModule({
   declarations: [BoardManagerComponent, BoardComponent],
   imports: [
@@ -39,7 +39,7 @@ const defaultDataServiceConfig: DefaultDataServiceConfig = {
   ],
   providers: [ {
     provide: DefaultDataServiceConfig, useValue: defaultDataServiceConfig
-  },BoardManagerDataService,BoardDataService,
+  }, BoardManagerDataService, BoardDataService,
   BoardManagerFacade]
 })
 export class BoardManagerModule {constructor(
@@ -47,5 +47,5 @@ export class BoardManagerModule {constructor(
   boardManagerDataService: BoardManagerDataService,
   boardDataService: BoardDataService
 ) {
-  entityDataService.registerServices({'Manager': boardManagerDataService, 'Board': boardDataService }); // <-- register it
+  entityDataService.registerServices({Manager: boardManagerDataService, Board: boardDataService }); // <-- register it
 } }

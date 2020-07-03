@@ -32,7 +32,7 @@ export class BoardManagerFacade {
     this._cs = EntityCollectionServiceFactory.create<IColumn>('Columns');
     this._cds = EntityCollectionServiceFactory.create<ICard>('Cards');
     this.boards$ = this._bs.filteredEntities$;
-    this.boardMngr$= this._bms.filteredEntities$.pipe(
+    this.boardMngr$ = this._bms.filteredEntities$.pipe(
       map( managers => managers[0])
     );
 
@@ -47,7 +47,7 @@ export class BoardManagerFacade {
   updateBoardManager(bm: Partial <IBoardManager>): Observable<IBoardManager> {
     return this._bms.update(bm);
   }
-  getBoardManagerByID(id: number):  Observable<IBoardManager> {
+  getBoardManagerByID(id: number): Observable<IBoardManager> {
     return this._bms.getByKey(id)
     .pipe(
       concatMap(ibm => this.getBoardsByManagerID(ibm.id).pipe(
@@ -55,12 +55,12 @@ export class BoardManagerFacade {
           const res = [];
           boards.forEach( board =>
             res.push(this.getColumnsByBoardId(board.id))
-          )
+          );
           return res;
         }),
-        map((boardArray: IBoard[]) => ({...ibm, boards:boardArray} as IBoardManager))
+        map((boardArray: IBoard[]) => ({...ibm, boards: boardArray} as IBoardManager))
       )),
-    )
+    );
   }
   createBoardManager(entity: IBoardManager): Observable<IBoardManager> {
     return this._bms.add(entity);
@@ -74,23 +74,23 @@ export class BoardManagerFacade {
   }
   getBoardsByManagerID(id: number): Observable<IBoard[]>{
     const qp: QueryParams = {
-      'managerId' : '0'
-    }
+      managerId : '0'
+    };
     return this._bs.getWithQuery(qp);
   }
   getBoardByID(id: number): Observable<IBoard>{
     throw Error('Not Implemented');
   }
-  getColumnsByBoardId(id:number): Observable<IColumn[]>{
+  getColumnsByBoardId(id: number): Observable<IColumn[]>{
     const qp: QueryParams = {
-      'boardId': `${id}`
-    }
+      boardId: `${id}`
+    };
     return this._cs.getWithQuery(qp);
   }
-  getCardsByBoardId(id:number): Observable<ICard[]>{
+  getCardsByBoardId(id: number): Observable<ICard[]>{
     const qp: QueryParams = {
-      'columnId': `${id}`
-    }
+      columnId: `${id}`
+    };
     return this._cds.getWithQuery(qp);
   }
 }
